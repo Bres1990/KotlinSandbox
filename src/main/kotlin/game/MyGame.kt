@@ -3,12 +3,13 @@ package game
 import com.badlogic.gdx.Game
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.FPSLogger
+import game.screen.CharacterCreation
 import game.screen.MainMenu
 import game.screen.MyGameScreen
 
 class MyGame: Game() {
 
-    lateinit var fpsLogger: FPSLogger
+    private lateinit var fpsLogger: FPSLogger
 
     override fun getScreen(): MyGameScreen {
         return super.getScreen() as MyGameScreen
@@ -17,6 +18,7 @@ class MyGame: Game() {
     override fun create() {
         setScreen(MainMenu())
         fpsLogger = FPSLogger()
+        fpsLogger.log()
     }
 
     override fun render() {
@@ -24,14 +26,14 @@ class MyGame: Game() {
         currentScreen.render(Gdx.graphics.deltaTime)
 
         if (currentScreen.isDone()) {
-//            currentScreen.dispose()
+            currentScreen.dispose()
 
             if (currentScreen is MainMenu) {
-                //setScreen(GameLoop())
+                setScreen(CharacterCreation())
             }
-//          else if (currentScreen is GameOver) {
-//              setScreen(MainMenu())
-//        }
+            else if (currentScreen is CharacterCreation) {
+                setScreen(MainMenu())
+            }
         }
     }
 }

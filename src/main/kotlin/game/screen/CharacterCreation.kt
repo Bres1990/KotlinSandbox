@@ -5,23 +5,18 @@ import com.badlogic.gdx.Input
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.Texture
-import com.badlogic.gdx.graphics.g2d.BitmapFont
-import com.badlogic.gdx.graphics.g2d.GlyphLayout
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Matrix4
 
-class MainMenu : MyGameScreen() {
+class CharacterCreation : MyGameScreen() {
 
     private var isDone: Boolean = false
 
     private var viewMatrix = Matrix4()
     private var transformMatrix = Matrix4()
-    private var glyphLayout = GlyphLayout()
-
     private var spriteBatch: SpriteBatch = SpriteBatch()
-    private var background: Texture = Texture(Gdx.files.local("background.png"))
-    private var logo: Texture = Texture(Gdx.files.local("tank_logo.jpg"))
-    private var font: BitmapFont = BitmapFont()
+
+    private var chart: Texture = Texture(Gdx.files.local("chart.png"))
 
     override fun update(delta: Float) {
         if (Gdx.input.isKeyPressed(Input.Keys.ENTER)) {
@@ -39,9 +34,8 @@ class MainMenu : MyGameScreen() {
         spriteBatch.begin()
         spriteBatch.disableBlending()
         spriteBatch.color = Color.GRAY
-        spriteBatch.draw(background, 0f, 0f, 1600f, 900f, 0, 0, 1600, 900, false, false)
         spriteBatch.enableBlending()
-        spriteBatch.draw(logo, 800f - (683f / 2f), 450f - (387f / 2f), 683f, 387f, 0, 0, 683, 387, false, false)
+        spriteBatch.draw(chart, 800f - (640f / 2f), 450f - (245f / 2f), 640f, 245f, 0, 0, 683, 387, false, false)
         spriteBatch.setBlendFunction(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA)
         spriteBatch.end()
     }
@@ -50,10 +44,4 @@ class MainMenu : MyGameScreen() {
         return isDone
     }
 
-    override fun dispose() {
-        spriteBatch.dispose()
-        background.dispose()
-        logo.dispose()
-        font.dispose()
-    }
 }
