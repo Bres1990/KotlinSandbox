@@ -1,7 +1,6 @@
-package game
+package game.ashley
 
 import com.badlogic.ashley.core.PooledEngine
-import game.ashley.*
 import java.util.logging.Logger
 
 class AshleyTest {
