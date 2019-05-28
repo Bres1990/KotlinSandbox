@@ -1,3 +1,5 @@
+package jsonplaceholder
+
 import com.google.gson.GsonBuilder
 import kotlinx.coroutines.runBlocking
 import retrofit2.Response

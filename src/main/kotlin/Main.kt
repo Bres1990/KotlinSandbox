@@ -1,5 +1,5 @@
 fun main() {
-    //val loader = Loader()
+    //val loader = jsonplaceholder.Loader()
     //loader.loadPosts()
 
 

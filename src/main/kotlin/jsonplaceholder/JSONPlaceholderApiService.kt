@@ -1,3 +1,5 @@
+package jsonplaceholder
+
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
@@ -8,7 +10,7 @@ import retrofit2.http.GET
 interface JSONPlaceholderApiService {
 
     @GET("/posts")
-    fun postsList() : Deferred<Response<List<JSONPlaceholderPost>>> // Call<List<JSONPlaceholderPost>>
+    fun postsList() : Deferred<Response<List<JSONPlaceholderPost>>> // Call<List<jsonplaceholder.JSONPlaceholderPost>>
 
     companion object {
         fun create() : JSONPlaceholderApiService {
