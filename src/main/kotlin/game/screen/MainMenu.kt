@@ -1,6 +1,7 @@
 package game.screen
 
 import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.assets.loaders.BitmapFontLoader
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.Texture
@@ -20,17 +21,7 @@ class MainMenu : MyGameScreen() {
     private var spriteBatch: SpriteBatch = SpriteBatch()
     private var background: Texture = Texture(Gdx.files.local("background.png"))
     private var logo: Texture = Texture(Gdx.files.local("tank_logo.jpg"))
-    private var font: BitmapFont
-
-    init {
-
-        background.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear)
-//        logo.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear)
-
-        font = BitmapFont()
-        font.color = Color.WHITE
-
-    }
+    private var font: BitmapFont = BitmapFont()
 
     override fun update(delta: Float) {
         if (Gdx.input.justTouched()) {
@@ -47,7 +38,7 @@ class MainMenu : MyGameScreen() {
         spriteBatch.transformMatrix = transformMatrix
         spriteBatch.begin()
         spriteBatch.disableBlending()
-        spriteBatch.color = Color.DARK_GRAY
+        spriteBatch.color = Color.GRAY
         spriteBatch.draw(background, 0f, 0f, 1600f, 900f, 0, 0, 1600, 900, false, false)
         spriteBatch.enableBlending()
         spriteBatch.draw(logo, 0f, 0f, 1600f, 900f, 0, 0, 683, 387, false, false)
