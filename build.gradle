@@ -33,12 +33,15 @@ dependencies {
     // KTX + LibGDX
     compile group: 'io.github.libktx', name: 'ktx-box2d', version: '1.9.9-b1'
     compile group: 'io.github.libktx', name: 'ktx-math', version: '1.9.9-b1'
+    compile group: 'io.github.libktx', name: 'ktx-vis', version: '1.9.9-b1'
     compile 'com.badlogicgames.gdx:gdx:1.9.6'
     compile 'com.badlogicgames.gdx:gdx-freetype:1.9.6'
     compile 'com.badlogicgames.gdx:gdx-backend-lwjgl:1.9.6'
     compile 'com.badlogicgames.gdx:gdx-platform:1.9.6:natives-desktop'
     compile 'com.badlogicgames.gdx:gdx-box2d:1.9.6'
     compile 'com.badlogicgames.ashley:ashley:1.7.3'
+
+    compile "com.kotcrab.vis:vis-ui:1.4.2"
 }
 
 compileKotlin {

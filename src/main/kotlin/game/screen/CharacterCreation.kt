@@ -2,7 +2,6 @@ package game.screen
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.Input
-import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
@@ -18,7 +17,6 @@ class CharacterCreation : MyGameScreen() {
     private var spriteBatch: SpriteBatch = SpriteBatch()
 
     private var background: Texture = Texture(Gdx.files.local("background.png"))
-    private var chart: Texture = Texture(Gdx.files.local("chart.png"))
 
     override fun update(delta: Float) {
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
@@ -38,9 +36,6 @@ class CharacterCreation : MyGameScreen() {
         spriteBatch.begin()
         spriteBatch.disableBlending()
         spriteBatch.draw(background, 0f, 0f, 1600f, 900f, 0, 0, 1600, 900, false, false)
-        spriteBatch.enableBlending()
-        spriteBatch.draw(chart, 800f - (640f / 2f), 450f - (245f / 2f), 640f, 245f, 0, 0, 683, 387, false, false)
-        spriteBatch.setBlendFunction(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA)
         spriteBatch.end()
     }
 
@@ -51,5 +46,7 @@ class CharacterCreation : MyGameScreen() {
     override fun isEscaped(): Boolean {
         return isEscaped
     }
+
+
 
 }

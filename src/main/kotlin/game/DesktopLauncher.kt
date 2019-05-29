@@ -8,5 +8,6 @@ fun main() {
     config.width = 1600
     config.height = 900
     config.title = "Tanks"
+    config.resizable = false
     LwjglApplication(MyGame(), config)
 }
