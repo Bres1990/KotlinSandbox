@@ -13,7 +13,7 @@ class Loader {
     private val gson = GsonBuilder().setPrettyPrinting().create()
     private val saver = Saver(gson)
 
-    suspend fun loadPosts() {
+    fun loadPosts() {
 
         val request = jsonPlaceholderApiServe.postsList()
         var response: Response<List<JSONPlaceholderPost>>

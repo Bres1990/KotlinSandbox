@@ -30,10 +30,9 @@ dependencies {
 
     implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
 
+    // KTX + LibGDX
     compile group: 'io.github.libktx', name: 'ktx-box2d', version: '1.9.9-b1'
     compile group: 'io.github.libktx', name: 'ktx-math', version: '1.9.9-b1'
-
-    // KTX + LibGDX
     compile 'com.badlogicgames.gdx:gdx:1.9.6'
     compile 'com.badlogicgames.gdx:gdx-freetype:1.9.6'
     compile 'com.badlogicgames.gdx:gdx-backend-lwjgl:1.9.6'
