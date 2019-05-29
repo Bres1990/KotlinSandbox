@@ -7,6 +7,7 @@ abstract class MyGameScreen : Screen {
     abstract fun update(delta: Float)
     abstract fun draw(delta: Float)
     abstract fun isDone() : Boolean
+    abstract fun isEscaped() : Boolean
 
     override fun hide() {
 

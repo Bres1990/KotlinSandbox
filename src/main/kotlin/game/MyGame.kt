@@ -30,10 +30,12 @@ class MyGame: Game() {
 
             if (currentScreen is MainMenu) {
                 setScreen(CharacterCreation())
-            }
-            else if (currentScreen is CharacterCreation) {
+            } else if (currentScreen is CharacterCreation) {
                 setScreen(MainMenu())
             }
+        } else if (currentScreen.isEscaped()) {
+            currentScreen.dispose()
+            Gdx.app.exit()
         }
     }
 }

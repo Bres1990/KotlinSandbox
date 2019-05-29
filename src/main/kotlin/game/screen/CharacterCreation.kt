@@ -11,16 +11,20 @@ import com.badlogic.gdx.math.Matrix4
 class CharacterCreation : MyGameScreen() {
 
     private var isDone: Boolean = false
+    private var isEscaped: Boolean = false
 
     private var viewMatrix = Matrix4()
     private var transformMatrix = Matrix4()
     private var spriteBatch: SpriteBatch = SpriteBatch()
 
+    private var background: Texture = Texture(Gdx.files.local("background.png"))
     private var chart: Texture = Texture(Gdx.files.local("chart.png"))
 
     override fun update(delta: Float) {
-        if (Gdx.input.isKeyPressed(Input.Keys.ENTER)) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
             isDone = true
+        } else if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+            isEscaped = true
         }
     }
 
@@ -33,7 +37,7 @@ class CharacterCreation : MyGameScreen() {
         spriteBatch.transformMatrix = transformMatrix
         spriteBatch.begin()
         spriteBatch.disableBlending()
-        spriteBatch.color = Color.GRAY
+        spriteBatch.draw(background, 0f, 0f, 1600f, 900f, 0, 0, 1600, 900, false, false)
         spriteBatch.enableBlending()
         spriteBatch.draw(chart, 800f - (640f / 2f), 450f - (245f / 2f), 640f, 245f, 0, 0, 683, 387, false, false)
         spriteBatch.setBlendFunction(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA)
@@ -42,6 +46,10 @@ class CharacterCreation : MyGameScreen() {
 
     override fun isDone(): Boolean {
         return isDone
+    }
+
+    override fun isEscaped(): Boolean {
+        return isEscaped
     }
 
 }

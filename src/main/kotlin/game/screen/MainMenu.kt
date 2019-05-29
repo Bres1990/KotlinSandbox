@@ -6,17 +6,16 @@ import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.BitmapFont
-import com.badlogic.gdx.graphics.g2d.GlyphLayout
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Matrix4
 
 class MainMenu : MyGameScreen() {
 
     private var isDone: Boolean = false
+    private var isEscaped: Boolean = false
 
     private var viewMatrix = Matrix4()
     private var transformMatrix = Matrix4()
-    private var glyphLayout = GlyphLayout()
 
     private var spriteBatch: SpriteBatch = SpriteBatch()
     private var background: Texture = Texture(Gdx.files.local("background.png"))
@@ -24,8 +23,10 @@ class MainMenu : MyGameScreen() {
     private var font: BitmapFont = BitmapFont()
 
     override fun update(delta: Float) {
-        if (Gdx.input.isKeyPressed(Input.Keys.ENTER)) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
             isDone = true
+        } else if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+            isEscaped = true
         }
     }
 
@@ -48,6 +49,10 @@ class MainMenu : MyGameScreen() {
 
     override fun isDone(): Boolean {
         return isDone
+    }
+
+    override fun isEscaped(): Boolean {
+        return isEscaped
     }
 
     override fun dispose() {
