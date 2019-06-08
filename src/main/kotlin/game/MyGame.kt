@@ -89,34 +89,33 @@ class MyGame: Game(), MenuBar.MenuBarListener {
     }
 
     private fun createMenus() {
-        val fileMenu = Menu("File")
-        val editMenu = Menu("Edit")
-        val windowMenu = Menu("Window")
+        val newCharacterMenu = Menu("New character")
+        val importCharacterMenu = Menu("Import character")
+        val optionsMenu = Menu("Options")
 
-        fileMenu.addItem(MenuItem("F1").setShortcut("f1"))
-        fileMenu.addItem(MenuItem("F2").setShortcut("f2"))
-        fileMenu.addItem(MenuItem("Quit").setShortcut("alt + f4"))
+        newCharacterMenu.addItem(MenuItem("Set race").setShortcut("f1"))
+        newCharacterMenu.addItem(MenuItem("Set class").setShortcut("f2"))
+        newCharacterMenu.addItem(MenuItem("Set perks").setShortcut("f3"))
+        newCharacterMenu.addItem(MenuItem("Set name").setShortcut("f4"))
 
-        fileMenu.setPosition(0f, menuBar.table.y, 0)
+        val importCharacterMenuItems = ArrayList<MenuItem>()
+        importCharacterMenuItems.add(MenuItem("-- Import slot 1 --"))
+        importCharacterMenuItems.add(MenuItem("-- Import slot 2 --"))
+        importCharacterMenuItems.add(MenuItem("-- Import slot 3 --"))
+        importCharacterMenuItems.add(MenuItem("-- Import slot 4 --"))
 
-        editMenu.addItem(MenuItem("edit #1"))
-        editMenu.addItem(MenuItem("edit #2"))
-        editMenu.addItem(MenuItem("edit #3"))
-        editMenu.addItem(MenuItem("edit #4"))
+        for (menuItem in importCharacterMenuItems) {
+            menuItem.isDisabled = true
+            importCharacterMenu.addItem(menuItem)
+        }
 
-        val disabledMenuItem = MenuItem("disabled")
-        disabledMenuItem.isDisabled = true
+        optionsMenu.addItem(MenuItem("Game"))
+        optionsMenu.addItem(MenuItem("Sound"))
+        optionsMenu.addItem(MenuItem("Key Bindings"))
 
-        editMenu.addItem(disabledMenuItem)
-
-        windowMenu.addItem(MenuItem("window #1"))
-        windowMenu.addItem(MenuItem("window #2"))
-        windowMenu.addItem(MenuItem("window #3"))
-        windowMenu.addItem(MenuItem("window #4"))
-
-        menuBar.addMenu(fileMenu)
-        menuBar.addMenu(editMenu)
-        menuBar.addMenu(windowMenu)
+        menuBar.addMenu(newCharacterMenu)
+        menuBar.addMenu(importCharacterMenu)
+        menuBar.addMenu(optionsMenu)
     }
 
     override fun dispose() {
