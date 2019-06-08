@@ -2,6 +2,7 @@ package game.screen
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.Input
+import com.badlogic.gdx.audio.Music
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.Texture
@@ -22,6 +23,26 @@ class MainMenu : MyGameScreen() {
     private var logo: Texture = Texture(Gdx.files.local("tank_logo.jpg"))
     private var font: BitmapFont = BitmapFont()
 
+    private var tanksMusic: Music = Gdx.audio.newMusic(Gdx.files.local("Main Theme.mp3"))
+
+    override fun hide() {
+        tanksMusic.stop()
+        tanksMusic.isLooping = false
+    }
+
+    override fun show() {
+        tanksMusic.isLooping = true
+        tanksMusic.play()
+    }
+
+    override fun pause() {
+        tanksMusic.pause()
+    }
+
+    override fun resume() {
+        tanksMusic.play()
+    }
+
     override fun update(delta: Float) {
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
             isDone = true
@@ -31,6 +52,7 @@ class MainMenu : MyGameScreen() {
     }
 
     override fun draw(delta: Float) {
+
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
 
         viewMatrix.setToOrtho2D(0f, 0f, 1600f, 900f)

@@ -1,6 +1,8 @@
 package game.screen
 
+import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.Screen
+import com.badlogic.gdx.audio.Music
 
 abstract class MyGameScreen : Screen {
 
